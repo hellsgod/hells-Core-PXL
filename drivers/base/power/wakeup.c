@@ -31,6 +31,14 @@ static bool enable_ipa_ws = false;
 module_param(enable_ipa_ws, bool, 0644);
 static bool enable_wlan_extscan_wl_ws = true;
 module_param(enable_wlan_extscan_wl_ws, bool, 0644);
+static bool enable_wlan_wow_wl_ws = false;
+module_param(enable_wlan_wow_wl_ws, bool, 0644);
+static bool enable_timerfd_ws = true;
+module_param(enable_timerfd_ws, bool, 0644);
+static bool enable_netlink_ws = true;
+module_param(enable_netlink_ws, bool, 0644);
+static bool enable_netmgr_wl_ws = false;
+module_param(enable_netmgr_wl_ws, bool, 0644);
 
 
 /*
@@ -502,7 +510,7 @@ static void wakeup_source_activate(struct wakeup_source *ws)
 {
 	unsigned int cec;
 
-	if (((!enable_bluedroid_timer_ws &&
+	if ((!enable_bluedroid_timer_ws &&
 			!strncmp(ws->name, "bluedroid_timer", 15)) ||
 		(!enable_qcom_rx_wakelock_ws &&
 			!strncmp(ws->name, "qcom_rx_wakelock", 11)) ||
@@ -511,7 +519,17 @@ static void wakeup_source_activate(struct wakeup_source *ws)
 		(!enable_wlan_extscan_wl_ws &&
 			!strncmp(ws->name, "wlan_extscan_wl", 15)) ||
 		(!enable_ipa_ws &&
-			!strncmp(ws->name, "IPA_WS", 6)))) {
+			!strncmp(ws->name, "IPA_WS", 6)) ||
+		(!enable_wlan_wow_wl_ws &&
+            !strncmp(ws->name, "wlan_wow_wl", 11)) ||
+		(!enable_wlan_ws &&
+            !strncmp(ws->name, "wlan", 4)) ||
+		(!enable_timerfd_ws &&
+            !strncmp(ws->name, "[timerfd]", 9)) ||
+		(!enable_netlink_ws &&
+            !strncmp(ws->name, "NETLINK", 7)) ||
+		(!enable_netmgr_wl_ws &&
+            !strncmp(ws->name, "netmgr_wl", 9))) {
 		/*
 		 * let's try and deactivate this wakeup source since the user
 		 * clearly doesn't want it. The user is responsible for any
