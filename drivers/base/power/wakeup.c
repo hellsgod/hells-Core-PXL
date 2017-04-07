@@ -16,7 +16,6 @@
 #include <linux/debugfs.h>
 #include <linux/types.h>
 #include <linux/moduleparam.h>
-#include <linux/display_state.h>
 #include <linux/wakeup_reason.h>
 #include <trace/events/power.h>
 
