@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 3.18.31 Kernel Configuration
+# Linux/arm64 3.18.36 Kernel Configuration
 #
 CONFIG_ARM64=y
 CONFIG_64BIT=y
@@ -43,6 +43,10 @@ CONFIG_CROSS_COMPILE=""
 # CONFIG_COMPILE_TEST is not set
 CONFIG_LOCALVERSION=""
 # CONFIG_LOCALVERSION_AUTO is not set
+CONFIG_HAVE_KERNEL_GZIP=y
+CONFIG_HAVE_KERNEL_LZ4=y
+CONFIG_KERNEL_GZIP=y
+# CONFIG_KERNEL_LZ4 is not set
 CONFIG_DEFAULT_HOSTNAME=""
 CONFIG_SWAP=y
 # CONFIG_SYSVIPC is not set
@@ -3167,7 +3171,7 @@ CONFIG_USB_DWC3_MSM=y
 # CONFIG_DWC3_HOST_USB3_LPM_ENABLE is not set
 # CONFIG_USB_DWC2 is not set
 # CONFIG_USB_CHIPIDEA is not set
-CONFIG_FUSB_30X=y
+# CONFIG_FUSB_30X is not set
 
 #
 # USB port drivers
@@ -3322,6 +3326,12 @@ CONFIG_USB_G_ANDROID=y
 # CONFIG_USB_G_HID is not set
 # CONFIG_USB_G_DBGP is not set
 # CONFIG_USB_G_WEBCAM is not set
+
+#
+# USB Power Delivery and Type-C drivers
+#
+CONFIG_TYPEC_TCPM=y
+CONFIG_TYPEC_FUSB302=y
 # CONFIG_USB_LED_TRIG is not set
 # CONFIG_UWB is not set
 CONFIG_MMC=y
