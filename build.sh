@@ -25,7 +25,7 @@ export SUBARCH=arm64
 
 # Paths
 KERNEL_DIR=`pwd`
-REPACK_DIR="${HOME}/Android/Kernel/hC-PXL-anykernel"
+REPACK_DIR="${HOME}/Android/Kernel/hC-PXL-AnyKernel2"
 ZIP_MOVE="${HOME}/Android/Kernel/hC-releases/PXL"
 ZIMAGE_DIR="${HOME}/Android/Kernel/hells-Core-PXL/arch/arm64/boot"
 DB_FOLDER="${HOME}/Dropbox/Kernel-Betas/PXL"
@@ -40,8 +40,8 @@ function clean_all {
 function make_kernel {
 		make $DEFCONFIG
 		make $THREAD
-		cp -vr $ZIMAGE_DIR/$KERNEL $REPACK_DIR/kernel
-		mv ${HOME}/Android/Kernel/hC-PXL-anykernel/kernel/Image.gz-dtb ${HOME}/Android/Kernel/hC-PXL-anykernel/kernel/zImage
+		cp -vr $ZIMAGE_DIR/$KERNEL $REPACK_DIR
+		mv $REPACK_DIR/$KERNEL $REPACK_DIR/zImage
 }
 
 function make_zip {
